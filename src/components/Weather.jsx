@@ -4,11 +4,11 @@ const Weather = ({ weatherInfo }) => {
   const [isCelsius, setIsCelsius] = useState(true);
 
   const kelvinToCelsius = (tempKelvin) => {
-    return (tempKelvin - 273.15).toFixed(1);
+    return (tempKelvin - 273.15).toFixed(0);
   };
 
   const kelvinToFahrenheit = (tempKelvin) => {
-    return (((tempKelvin - 273.15) * 9) / 5 + 32).toFixed(1);
+    return (((tempKelvin - 273.15) * 9) / 5 + 32).toFixed(0);
   };
 
   const handleChangeUnitTemp = () => {

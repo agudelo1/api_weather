@@ -106,6 +106,7 @@ function App() {
               className="flex rounded-md overflow-hidden max-w-max mx-auto "
             >
               <input
+                autoComplete="off"
                 id="countryName"
                 placeholder="Medellin..."
                 className="dark:text-white p-2 dark:bg-black/30  bg-slate-600/70 text-black "
