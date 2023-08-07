@@ -308,7 +308,7 @@ const Weather = ({ weatherInfo }) => {
           imgWeather[weatherInfo?.weather[0].main]
         } bg-center bg-cover bg-no-repeat absolute h-screen w-full -z-10 `}
       ></section>
-      <section className="text-center">
+      <section className="text-center ">
         <h2 className="p-4 font-extrabold text-xl text-black dark:text-white  ">
           {weatherInfo?.name}, {iso[weatherInfo?.sys.country]}
         </h2>

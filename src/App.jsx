@@ -86,7 +86,7 @@ function App() {
         </div>
       ) : (
         <>
-          <section className="fixed top-5 right-10 duration-100 dark:bg-indigo-500/50 bg-amber-300/50 rounded-md">
+          <section className="fixed top-5 right-5 duration-100 dark:bg-indigo-500/50 bg-amber-300/50 rounded-md">
             {options?.map((opt) => (
               <button
                 key={opt.text}
@@ -99,7 +99,7 @@ function App() {
               </button>
             ))}
           </section>
-          <section>
+          <section className="pt-10">
             <form
               id="myForm"
               onSubmit={handleSubmit}
