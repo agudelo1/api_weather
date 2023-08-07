@@ -40,7 +40,7 @@ function App() {
     setLoading(true);
     setInterval(() => {
       setLoading(false);
-    }, 5000);
+    }, 4000);
     navigator.geolocation.getCurrentPosition(success);
   }, []);
 
