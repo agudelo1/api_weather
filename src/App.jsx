@@ -40,7 +40,6 @@ function App() {
 
   return (
     <main className=" flex-col relative h-screen  text-white font-lato flex justify-center items-center px-4">
-      <section className="brightness-75 bg-[url('/img/03n.jpeg')] bg-center bg-cover bg-no-repeat absolute h-screen w-full -z-10"></section>
       <section>
         <form
           id="miForm"
