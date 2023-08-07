@@ -2,9 +2,11 @@ import { useEffect, useState } from "react";
 import "./App.css";
 import axios from "axios";
 import Weather from "./components/Weather";
+import HashLoader from "react-spinners/HashLoader";
 
 function App() {
   const [weatherInfo, setWeatherInfo] = useState(null);
+  const [loading, setLoading] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -35,27 +37,46 @@ function App() {
   };
 
   useEffect(() => {
+    setLoading(true);
+    setInterval(() => {
+      setLoading(false);
+    }, 5000);
     navigator.geolocation.getCurrentPosition(success);
   }, []);
 
   return (
-    <main className=" flex-col relative h-screen  text-white font-lato flex justify-center items-center px-4">
-      <section>
-        <form
-          id="miForm"
-          onSubmit={handleSubmit}
-          className="flex rounded-md overflow-hidden max-w-max mx-auto "
-        >
-          <input
-            id="countryName"
-            placeholder="Medellin..."
-            className="text-white p-2 bg-black/30"
-            type="text"
+    <main className=" flex-col relative h-screen  text-white font-lato flex justify-center items-center ">
+      {loading ? (
+        <div className="bg-black w-[100%] h-[100vh] flex justify-center items-center">
+          <HashLoader
+            color={"#36d7b7"}
+            loading={loading}
+            size={200}
+            aria-label="Loading Spinner"
+            data-testid="loader"
           />
-          <button className="bg-indigo-500 px-4">Search</button>
-        </form>
-      </section>
-      <Weather weatherInfo={weatherInfo} />
+        </div>
+      ) : (
+        <>
+          <section>
+            <form
+              id="miForm"
+              onSubmit={handleSubmit}
+              className="flex rounded-md overflow-hidden max-w-max mx-auto "
+            >
+              <input
+                id="countryName"
+                placeholder="Medellin..."
+                className="text-white p-2 bg-black/30"
+                type="text"
+              />
+              <button className="bg-indigo-500 px-4">Search</button>
+            </form>
+          </section>
+
+          <Weather weatherInfo={weatherInfo} />
+        </>
+      )}
     </main>
   );
 }
