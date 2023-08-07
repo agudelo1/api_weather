@@ -24,13 +24,13 @@ const Weather = ({ weatherInfo }) => {
       <section className="grid gap-4 sm:grid-cols-[auto_auto]    ">
         {/* Section superior  */}
         <section
-          className="bg-black/25 p-2 rounded-2xl 
-        grid grid-cols-2 items-center"
+          className="bg-black/25 p-10 rounded-[50px] 
+        grid grid-cols-2 items-center  "
         >
           <h4 className="col-span-2 font-semibold text-lg">
             {weatherInfo?.weather[0].description}
           </h4>
-          <span className="text-2xl">
+          <span className="text-[50px]  ">
             {resultTempConversion} °{isCelsius ? "C" : "F"}
           </span>
           <div>
@@ -42,7 +42,7 @@ const Weather = ({ weatherInfo }) => {
         </section>
         {/* Section inferior  */}
         <section
-          className="bg-black/25 p-2 py-4 rounded-2xl 
+          className="bg-black/25 p-10 py-4 rounded-[20px]
         grid grid-cols-3 items-center sm:grid-cols-1 "
         >
           <article className="flex gap-2 items-center">
@@ -55,7 +55,7 @@ const Weather = ({ weatherInfo }) => {
             <div className="w-[20px]">
               <img src={"/img/humidity.png"} alt="" />
             </div>
-            <span className="text-sm">{weatherInfo?.main.humidity} %</span>
+            <span className="text-sm ">{weatherInfo?.main.humidity} %</span>
           </article>
           <article className="flex gap-2 items-center">
             <div className="w-[20px]">
@@ -67,7 +67,7 @@ const Weather = ({ weatherInfo }) => {
       </section>
       <button
         onClick={handleChangeUnitTemp}
-        className="mt-4 bg-white text-black p-2 px-8 rounded-3xl text-sm"
+        className="mt-4 bg-indigo-500 text-white p-2 px-8 rounded-3xl text-sm"
       >
         {isCelsius ? "Change to C" : "Change to F"}
       </button>
