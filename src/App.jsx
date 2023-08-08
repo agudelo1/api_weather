@@ -67,7 +67,7 @@ function App() {
     setLoading(true);
     setInterval(() => {
       setLoading(false);
-    }, 4000);
+    }, 1000);
 
     navigator.geolocation.getCurrentPosition(success);
   }, []);
