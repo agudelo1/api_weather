@@ -326,7 +326,10 @@ const Weather = ({ weatherInfo }) => {
             </span>
             <div className="flex flex-row justify-center">
               <img
-                src={`/img/${iconWeather[weatherInfo?.weather[0].main]}`}
+                src={
+                  weatherInfo &&
+                  `/img/${iconWeather[weatherInfo?.weather[0].main]}`
+                }
                 alt=""
               />
             </div>
