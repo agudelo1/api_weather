@@ -6,7 +6,7 @@ import HashLoader from "react-spinners/HashLoader";
 
 function App() {
   const [weatherInfo, setWeatherInfo] = useState(null);
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
   const [theme, setTheme] = useState("dark");
 
   const element = document.documentElement;
@@ -30,7 +30,10 @@ function App() {
 
     axios
       .get(url)
-      .then(({ data }) => setWeatherInfo(data))
+      .then(({ data }) => {
+        setWeatherInfo(data);
+        setLoading(false);
+      })
       .catch((err) => console.log(err));
 
     document.getElementById("myForm").reset();
@@ -46,7 +49,10 @@ function App() {
 
     axios
       .get(url)
-      .then(({ data }) => setWeatherInfo(data))
+      .then(({ data }) => {
+        setWeatherInfo(data);
+        setLoading(false);
+      })
       .catch((err) => console.log(err));
   };
 
@@ -64,11 +70,6 @@ function App() {
   }, [theme]);
 
   useEffect(() => {
-    setLoading(true);
-    setInterval(() => {
-      setLoading(false);
-    }, 1000);
-
     navigator.geolocation.getCurrentPosition(success);
   }, []);
 
